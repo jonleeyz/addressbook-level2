@@ -52,8 +52,17 @@ public class StorageFile {
         }
     }
 
-    private final JAXBContext jaxbContext;
+    /**
+     * Signals that some error has occured specifically while trying to write data between the application
+     * and the storage file.
+     */
+    public static class StorageFileReadOnlyException extends StorageOperationException {
+        public StorageFileReadOnlyException(String message) {
+            super(message);
+        }
+    }
 
+    private final JAXBContext jaxbContext;
     public final Path path;
 
     /**
