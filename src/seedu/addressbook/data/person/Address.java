@@ -10,9 +10,14 @@ import seedu.addressbook.data.exception.IllegalValueException;
 public class Address {
 
     public static final String EXAMPLE = "123, some street";
-    public static final String MESSAGE_ADDRESS_CONSTRAINTS = "Person addresses can be in any format";
-    public static final String ADDRESS_VALIDATION_REGEX = ".+";
-    public static final String ADDRESS_COMPONENT_SPLIT_REGEX = ", ";
+    private static final String MESSAGE_ADDRESS_CONSTRAINTS = "Person addresses can be in any format";
+    private static final String ADDRESS_VALIDATION_REGEX = ".+";
+    private static final String ADDRESS_COMPONENT_SPLIT_REGEX = ", ";
+    private static final int ADDRESS_BLOCK_INDEX = 0;
+    private static final int ADDRESS_STREET_INDEX = 1;
+    private static final int ADDRESS_UNIT_INDEX = 2;
+    private static final int ADDRESS_POSTALCODE_INDEX = 3;
+
 
     private Block block;
     private Street street;
@@ -59,10 +64,10 @@ public class Address {
     }
 
     public void assignAddressComponents(String[] addressComponents) {
-        block = new Block(Integer.parseInt(addressComponents[0]));
-        street = new Street(addressComponents[1]);
-        unit = new Unit(addressComponents[2]);
-        postalCode = new PostalCode(Integer.parseInt(addressComponents[3]));
+        block = new Block(Integer.parseInt(addressComponents[ADDRESS_BLOCK_INDEX]));
+        street = new Street(addressComponents[ADDRESS_STREET_INDEX]);
+        unit = new Unit(addressComponents[ADDRESS_UNIT_INDEX]);
+        postalCode = new PostalCode(Integer.parseInt(addressComponents[ADDRESS_POSTALCODE_INDEX]));
     }
 
     public static String[] splitAddressIntoComponents(String rawAddress) {
