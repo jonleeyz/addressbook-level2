@@ -33,8 +33,6 @@ public class Address {
         }
         String[] processedAddress = splitAddressIntoComponents(trimmedAddress);
         assignAddressComponents(processedAddress);
-<<<<<<< Updated upstream
-=======
     }
 
     private Block getBlock() {
@@ -51,7 +49,6 @@ public class Address {
 
     private PostalCode getPostalCode() {
         return postalCode;
->>>>>>> Stashed changes
     }
 
     /**
@@ -84,17 +81,10 @@ public class Address {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof Address // instanceof handles nulls
-<<<<<<< Updated upstream
-                && this.block.equals(((Address) other).block); // block state check
-                && this.street.equals(((Address) other).street); // street state check
-                && this.unit.equals(((Address) other).unit); // unit state check
-                && this.postalCode.equals(((Address) other).postalCode)); // postalCode state check
-=======
                 && this.block.equals(((Address) other).getBlock()) // block state check
                 && this.street.equals(((Address) other).getStreet()) // street state check
                 && this.unit.equals(((Address) other).getUnit()) // unit state check
                 && this.postalCode.equals(((Address) other).getPostalCode())); // postalCode state check
->>>>>>> Stashed changes
     }
 
     @Override
