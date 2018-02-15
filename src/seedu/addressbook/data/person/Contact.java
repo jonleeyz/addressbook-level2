@@ -24,7 +24,7 @@ public class Contact {
         this.isPrivate = isPrivate;
         String trimmedPhone = phone.trim();
         if (!isValidPhone(trimmedPhone)) {
-            throw new IllegalValueException(MESSAGE_PHONE_CONSTRAINTS);
+            throw new IllegalValueException(MESSAGE_CONTACT_DETAIL_CONSTRAINTS);
         }
         this.value = trimmedPhone;
     }
@@ -33,7 +33,7 @@ public class Contact {
      * Returns true if the given string is a valid person phone number.
      */
     public static boolean isValidPhone(String test) {
-        return test.matches(PHONE_VALIDATION_REGEX);
+        return test.matches(CONTACT_DETAIL_VALIDATION_REGEX);
     }
 
     @Override
