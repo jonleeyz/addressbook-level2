@@ -12,7 +12,7 @@ public class Contact {
     public static final String MESSAGE_CONTACT_DETAIL_CONSTRAINTS = new String();
     public static final String CONTACT_DETAIL_VALIDATION_REGEX = new String();
 
-    public final String value;
+    public final String contactDetail;
     private boolean isPrivate;
 
     /**
@@ -26,7 +26,7 @@ public class Contact {
         if (!isValidPhone(trimmedPhone)) {
             throw new IllegalValueException(MESSAGE_CONTACT_DETAIL_CONSTRAINTS);
         }
-        this.value = trimmedPhone;
+        this.contactDetail = trimmedPhone;
     }
 
     /**
@@ -38,19 +38,19 @@ public class Contact {
 
     @Override
     public String toString() {
-        return value;
+        return contactDetail;
     }
 
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof Contact // instanceof handles nulls
-                && this.value.equals(((Contact) other).value)); // state check
+                && this.contactDetail.equals(((Contact) other).contactDetail)); // state check
     }
 
     @Override
     public int hashCode() {
-        return value.hashCode();
+        return contactDetail.hashCode();
     }
 
     public boolean isPrivate() {
