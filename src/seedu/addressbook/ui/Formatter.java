@@ -13,7 +13,7 @@ import java.util.Scanner;
 import static seedu.addressbook.common.Messages.*;
 
 /**
- * Text UI of the application.
+ * Helper class for TextUI: Formats strings and lists of strings.
  */
 public class Formatter {
 
