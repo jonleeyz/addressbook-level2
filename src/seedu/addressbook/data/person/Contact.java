@@ -20,13 +20,16 @@ public abstract class Contact {
      *
      * @throws IllegalValueException if given phone string is invalid.
      */
-    public Contact(String value, boolean isPrivate) throws IllegalValueException {
+    public Contact(String value, boolean isPrivate, String constraintMessage, String validationRegex)
+            throws IllegalValueException {
         this.isPrivate = isPrivate;
         String trimmedValue = value.trim();
         if (!isValidContactDetail(trimmedValue)) {
             throw new IllegalValueException(MESSAGE_CONTACT_DETAIL_CONSTRAINTS);
         }
         this.contactDetail = trimmedValue;
+        this.MESSAGE_CONTACT_DETAIL_CONSTRAINTS = constraintMessage;
+        this.CONTACT_DETAIL_VALIDATION_REGEX = validationRegex;
     }
 
     /**
