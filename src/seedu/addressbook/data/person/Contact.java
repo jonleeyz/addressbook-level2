@@ -20,9 +20,9 @@ public class Contact {
      *
      * @throws IllegalValueException if given phone string is invalid.
      */
-    public Contact(String phone, boolean isPrivate) throws IllegalValueException {
+    public Contact(String value, boolean isPrivate) throws IllegalValueException {
         this.isPrivate = isPrivate;
-        String trimmedPhone = phone.trim();
+        String trimmedPhone = value.trim();
         if (!isValidPhone(trimmedPhone)) {
             throw new IllegalValueException(MESSAGE_CONTACT_DETAIL_CONSTRAINTS);
         }
