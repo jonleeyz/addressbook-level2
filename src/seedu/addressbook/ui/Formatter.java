@@ -14,7 +14,7 @@ class Formatter {
     private static final int DISPLAYED_INDEX_OFFSET = 1;
 
     /** Formats a list of strings as a viewable indexed list. */
-    private static String getIndexedListForViewing(List<String> listItems) {
+    public static String getIndexedListForViewing(List<String> listItems) {
         final StringBuilder formatted = new StringBuilder();
         int displayIndex = DISPLAYED_INDEX_OFFSET;
         for (String listItem : listItems) {
