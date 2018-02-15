@@ -9,8 +9,6 @@ import seedu.addressbook.data.exception.IllegalValueException;
 public abstract class Contact {
 
     public static final String EXAMPLE = new String();
-    public static final String MESSAGE_CONTACT_DETAIL_CONSTRAINTS;
-    public static final String CONTACT_DETAIL_VALIDATION_REGEX;
 
     protected final String contactDetail;
     private boolean isPrivate;
@@ -24,19 +22,17 @@ public abstract class Contact {
             throws IllegalValueException {
         this.isPrivate = isPrivate;
         String trimmedValue = value.trim();
-        if (!isValidContactDetail(trimmedValue)) {
-            throw new IllegalValueException(MESSAGE_CONTACT_DETAIL_CONSTRAINTS);
+        if (!isValidContactDetail(trimmedValue, validationRegex)) {
+            throw new IllegalValueException(constraintMessage);
         }
         this.contactDetail = trimmedValue;
-        this.MESSAGE_CONTACT_DETAIL_CONSTRAINTS = constraintMessage;
-        this.CONTACT_DETAIL_VALIDATION_REGEX = validationRegex;
     }
 
     /**
      * Returns true if the given string is a valid person phone number.
      */
-    public static boolean isValidContactDetail(String test) {
-        return test.matches(CONTACT_DETAIL_VALIDATION_REGEX);
+    public static boolean isValidContactDetail(String test, String validationRegex) {
+        return test.matches(validationRegex);
     }
 
     @Override
