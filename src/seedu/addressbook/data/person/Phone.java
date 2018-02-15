@@ -25,6 +25,6 @@ public class Phone extends Contact {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof Phone // instanceof handles nulls
-                && this.value.equals(((Phone) other).value)); // state check
+                && this.contactDetail.equals(((Phone) other).contactDetail)); // state check
     }
 }

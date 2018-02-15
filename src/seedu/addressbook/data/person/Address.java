@@ -25,6 +25,6 @@ public class Address extends Contact {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof Address // instanceof handles nulls
-                && this.value.equals(((Address) other).value)); // state check
+                && this.contactDetail.equals(((Address) other).contactDetail)); // state check
     }
 }
