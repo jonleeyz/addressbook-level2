@@ -22,11 +22,11 @@ public class Contact {
      */
     public Contact(String value, boolean isPrivate) throws IllegalValueException {
         this.isPrivate = isPrivate;
-        String trimmedPhone = value.trim();
-        if (!isValidPhone(trimmedPhone)) {
+        String trimmedValue = value.trim();
+        if (!isValidPhone(trimmedValue)) {
             throw new IllegalValueException(MESSAGE_CONTACT_DETAIL_CONSTRAINTS);
         }
-        this.contactDetail = trimmedPhone;
+        this.contactDetail = trimmedValue;
     }
 
     /**
