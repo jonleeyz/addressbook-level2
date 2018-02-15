@@ -8,8 +8,6 @@ import seedu.addressbook.data.exception.IllegalValueException;
  */
 public abstract class Contact {
 
-    public static final String EXAMPLE = new String();
-
     protected final String contactDetail;
     private boolean isPrivate;
 
