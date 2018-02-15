@@ -12,7 +12,7 @@ public abstract class Contact {
     public static final String MESSAGE_CONTACT_DETAIL_CONSTRAINTS;
     public static final String CONTACT_DETAIL_VALIDATION_REGEX;
 
-    public final String contactDetail;
+    protected final String contactDetail;
     private boolean isPrivate;
 
     /**
