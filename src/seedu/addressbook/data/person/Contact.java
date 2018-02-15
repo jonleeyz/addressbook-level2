@@ -35,6 +35,10 @@ public abstract class Contact {
         return test.matches(validationRegex);
     }
 
+    public String getContactDetail() {
+        return contactDetail;
+    }
+
     @Override
     public String toString() {
         return contactDetail;
