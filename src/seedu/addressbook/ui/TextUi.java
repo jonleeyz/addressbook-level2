@@ -146,7 +146,7 @@ public class TextUi {
 
     /** Shows a list of strings to the user, formatted as an indexed list. */
     private void showToUserAsIndexedList(List<String> list) {
-        showToUser(getIndexedListForViewing(list));
+        showToUser(Formatter.getIndexedListForViewing(list));
     }
 
     /** Formats a list of strings as a viewable indexed list. */
