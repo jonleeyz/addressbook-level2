@@ -1,16 +1,6 @@
 package seedu.addressbook.ui;
 
-import seedu.addressbook.commands.CommandResult;
-import seedu.addressbook.data.person.ReadOnlyPerson;
-
-import java.io.InputStream;
-import java.io.PrintStream;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.Scanner;
-
-import static seedu.addressbook.common.Messages.*;
 
 /**
  * Helper class for TextUI: Formats strings and lists of strings.
