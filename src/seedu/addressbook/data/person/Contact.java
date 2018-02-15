@@ -9,8 +9,8 @@ import seedu.addressbook.data.exception.IllegalValueException;
 public abstract class Contact {
 
     public static final String EXAMPLE = new String();
-    public static final String MESSAGE_CONTACT_DETAIL_CONSTRAINTS = new String();
-    public static final String CONTACT_DETAIL_VALIDATION_REGEX = new String();
+    public static final String MESSAGE_CONTACT_DETAIL_CONSTRAINTS;
+    public static final String CONTACT_DETAIL_VALIDATION_REGEX;
 
     public final String contactDetail;
     private boolean isPrivate;
