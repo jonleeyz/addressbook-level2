@@ -25,7 +25,9 @@ public class EditCommand extends Command {
             + "Parameters: INDEX ATTRIBUTE NEW_VALUE\n"
             + "Example: " + COMMAND_WORD + " 1 name Ryan";
 
-    public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Person: %1$s";
+    public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edit successful:\n" +
+            + "|| Original Person: %1$s\n"
+            + "|| New Person: %2$s";
 
     private final Attribute attribute;
     private final String newValue;
@@ -48,7 +50,9 @@ public class EditCommand extends Command {
             Person updatedPerson = updateExistingPerson(target);
             addressBook.removePerson(target);
             addressBook.addPerson(updatedPerson);
-            return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, target));
+            return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS,
+                    target,
+                    updatedPerson));
 
         } catch (IndexOutOfBoundsException ie) {
             return new CommandResult(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
@@ -69,6 +73,8 @@ public class EditCommand extends Command {
                 return target.getEmail().equals(newValue);
             case ADDRESS:
                 return target.getAddress().equals(newValue);
+            default:
+                return true;
         }
     }
 
