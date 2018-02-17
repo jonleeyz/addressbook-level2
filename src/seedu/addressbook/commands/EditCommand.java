@@ -51,8 +51,8 @@ public class EditCommand extends Command {
             addressBook.removePerson(target);
             addressBook.addPerson(updatedPerson);
             return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS,
-                    target,
-                    updatedPerson));
+                    target.getAsTextHidePrivate(),
+                    updatedPerson.getAsTextHidePrivate()));
         } catch (IndexOutOfBoundsException ie) {
             return new CommandResult(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         } catch (PersonNotFoundException pnfe) {
