@@ -198,6 +198,72 @@
 || Enter command: || [Command entered:  viewall 5]
 || Viewing person: Esther Potato Phone: 555555 Email: esther@not.a.real.potato Address: (private) 555, epsilon street Tags: [tubers][starchy]
 || ===================================================
+|| Enter command: || [Command entered:  edit]
+|| Invalid command format!
+|| edit: Edits an attribute of a person identified by the index number used in the last find/list call.
+|| Parameters: INDEX ATTRIBUTE NEW_VALUE
+|| Example: edit 1 name Ryan
+|| ===================================================
+|| Enter command: || [Command entered:  edit 1]
+|| Invalid command format!
+|| edit: Edits an attribute of a person identified by the index number used in the last find/list call.
+|| Parameters: INDEX ATTRIBUTE NEW_VALUE
+|| Example: edit 1 name Ryan
+|| ===================================================
+|| Enter command: || [Command entered:  edit 1 name]
+|| Invalid command format!
+|| edit: Edits an attribute of a person identified by the index number used in the last find/list call.
+|| Parameters: INDEX ATTRIBUTE NEW_VALUE
+|| Example: edit 1 name Ryan
+|| ===================================================
+|| Enter command: || [Command entered:  edit -1 name damien]
+|| The person index provided is invalid
+|| ===================================================
+|| Enter command: || [Command entered:  edit 0 name damien]
+|| The person index provided is invalid
+|| ===================================================
+|| Enter command: || [Command entered:  edit 6 name damien]
+|| The person index provided is invalid
+|| ===================================================
+|| Enter command: || [Command entered:  edit 1 facebook damien]
+|| Invalid attribute provided
+|| ===================================================
+|| Enter command: || [Command entered:  edit 1 name ???]
+|| Person names should be spaces or alphabetic characters
+|| ===================================================
+|| Enter command: || [Command entered:  edit 1 name 999]
+|| Person names should be spaces or alphabetic characters
+|| ===================================================
+|| Enter command: || [Command entered:  edit 1 phone thisisaphonenumber]
+|| Person phone numbers should only contain numbers
+|| ===================================================
+|| Enter command: || [Command entered:  edit 1 email gg]
+|| Person emails should be 2 alphanumeric/period strings separated by '@'
+|| ===================================================
+|| Enter command: || [Command entered:  edit 1 email gg@]
+|| Person emails should be 2 alphanumeric/period strings separated by '@'
+|| ===================================================
+|| Enter command: || [Command entered:  edit 1 email gg.com]
+|| Person emails should be 2 alphanumeric/period strings separated by '@'
+|| ===================================================
+|| Enter command: || [Command entered:  edit 1 email @gg.com]
+|| Person emails should be 2 alphanumeric/period strings separated by '@'
+|| ===================================================
+|| Enter command: || [Command entered:  edit 4 phone 999]
+|| Edit successful!
+|| Original Person: Dickson Ee Phone: 444444 Address: 444, delta street Tags: [friends]
+|| New Person: Dickson Ee Phone: 999 Address: 444, delta street Tags: [friends]
+|| ===================================================
+|| Enter command: || [Command entered:  edit 4 email dickson@eeffgg.com]
+|| Edit successful!
+|| Original Person: Dickson Ee Phone: 999 Address: 444, delta street Tags: [friends]
+|| New Person: Dickson Ee Phone: 999 Address: 444, delta street Tags: [friends]
+|| ===================================================
+|| Enter command: || [Command entered:  edit 4 name Vincent]
+|| Edit successful!
+|| Original Person: Dickson Ee Phone: 999 Address: 444, delta street Tags: [friends]
+|| New Person: Vincent Phone: 999 Address: 444, delta street Tags: [friends]
+|| ===================================================
 || Enter command: || [Command entered:  find]
 || Invalid command format! 
 || find: Finds all persons whose names contain any of the specified keywords (case-sensitive) and displays them as a list with index numbers.
