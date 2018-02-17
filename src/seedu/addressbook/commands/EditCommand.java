@@ -6,16 +6,17 @@ import seedu.addressbook.data.person.UniquePersonList.PersonNotFoundException;
 
 
 /**
- * Deletes a person identified using it's last displayed index from the address book.
+ * Edits a person identified using its last displayed index from the address book.
  */
 public class EditCommand extends Command {
 
-    public static final String COMMAND_WORD = "delete";
+    public static final String COMMAND_WORD = "edit";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Deletes the person identified by the index number used in the last person listing.\n"
-            + "Parameters: INDEX\n"
-            + "Example: " + COMMAND_WORD + " 1";
+            + ": Edits an attribute of a person identified by the index number\n"
+            + "used in the last find/list call.\n"
+            + "Parameters: INDEX ATTRIBUTE NEW_VALUE\n"
+            + "Example: " + COMMAND_WORD + " 1 name Ryan";
 
     public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Person: %1$s";
 
