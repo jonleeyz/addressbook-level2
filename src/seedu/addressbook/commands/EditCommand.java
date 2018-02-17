@@ -58,4 +58,27 @@ public class EditCommand extends Command {
                 return target.getAddress().equals(newValue);
         }
     }
+
+    private Person updateExistingPerson(ReadOnlyPerson existingPerson) throws IllegalValueException {
+        Name name = existingPerson.getName();
+        Phone phone = existingPerson.getPhone();
+        Email email = existingPerson.getEmail();
+        Address address = existingPerson.getAddress();
+
+        switch (attribute) {
+            case NAME:
+                name = new Name(newValue);
+                break;
+            case PHONE:
+                phone = new Phone(newValue, phone.isPrivate());
+                break;
+            case EMAIL:
+                email = new Email(newValue, email.isPrivate());
+                break;
+            case ADDRESS:
+                address = new Address(newValue, address.isPrivate());
+                break;
+        }
+        return new Person(name, phone, email, address, existingPerson.getTags());
+    }
 }
