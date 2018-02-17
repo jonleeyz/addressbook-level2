@@ -87,6 +87,37 @@
   viewall 5
 
 ##########################################################
+# test edit persons command
+##########################################################
+
+  # should catch wrong number of args
+  edit
+  edit 1
+  edit 1 name
+
+  # should catch invalid index
+  edit -1 name damien
+  edit 0 name damien
+  edit 6 name damien
+
+  # should catch invalid attribute type
+  edit 1 facebook damien
+
+  # should catch invalid new value
+  edit 1 name ???
+  edit 1 name 999
+  edit 1 phone thisisaphonenumber
+  edit 1 email gg
+  edit 1 email gg@
+  edit 1 email gg.com
+  edit 1 email @gg.com
+
+  # should show only non-private details of the updated person even after edit
+  edit 4 phone 999
+  edit 4 email dickson@eeffgg.com
+  edit 4 name Vincent
+
+##########################################################
 # test find persons command
 ##########################################################
 
