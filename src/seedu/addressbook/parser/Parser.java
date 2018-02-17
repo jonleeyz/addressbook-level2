@@ -198,16 +198,20 @@ public class Parser {
         }
         try {
             String rawTargetIndex = matcher.group("targetIndex").trim();
+            String rawAttribute = matcher.group("attribute").trim();
             final int targetIndex = parseArgsAsDisplayedIndex(rawTargetIndex);
+            final Attribute attribute = Attribute.valueOf(rawAttribute.toUpperCase());
             return new EditCommand(
                     targetIndex,
-                    matcher.group("attribute").trim(),
+                    attribute,
                     matcher.group("newValue").trim()
             );
         } catch (ParseException pe) {
             return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
         } catch (NumberFormatException nfe) {
             return new IncorrectCommand(MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+        } catch (IllegalArgumentException iae) {
+            return new IncorrectCommand()
         }
     }
 
@@ -285,5 +289,7 @@ public class Parser {
         return new FindCommand(keywordSet);
     }
 
-
+    public enum Attribute {
+        NAME, PHOME, EMAIL, ADDRESS
+    }
 }

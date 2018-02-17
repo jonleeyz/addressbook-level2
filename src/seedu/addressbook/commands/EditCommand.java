@@ -3,6 +3,7 @@ package seedu.addressbook.commands;
 import seedu.addressbook.common.Messages;
 import seedu.addressbook.data.person.ReadOnlyPerson;
 import seedu.addressbook.data.person.UniquePersonList.PersonNotFoundException;
+import seedu.addressbook.parser.Parser.Attribute;
 
 
 /**
@@ -20,11 +21,11 @@ public class EditCommand extends Command {
 
     public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Person: %1$s";
 
-    private final String attribute;
+    private final Attribute attribute;
     private final String newValue;
 
 
-    public EditCommand(int targetVisibleIndex, String attribute, String newValue) {
+    public EditCommand(int targetVisibleIndex, Attribute attribute, String newValue) {
         super(targetVisibleIndex);
         this.attribute = attribute;
         this.newValue = newValue;
