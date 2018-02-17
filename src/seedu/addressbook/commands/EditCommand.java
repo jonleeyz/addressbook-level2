@@ -46,4 +46,16 @@ public class EditCommand extends Command {
         }
     }
 
+    private boolean isNewValueSameAsOld(ReadOnlyPerson target) {
+        switch (attribute) {
+            case NAME:
+                return target.getName().equals(newValue);
+            case PHONE:
+                return target.getPhone().equals(newValue);
+            case EMAIL:
+                return target.getEmail().equals(newValue);
+            case ADDRESS:
+                return target.getAddress().equals(newValue);
+        }
+    }
 }
