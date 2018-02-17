@@ -45,8 +45,9 @@ public class EditCommand extends Command {
             if (isNewValueSameAsOld(target)) {
                 return new CommandResult(Messages.MESSAGE_INVALID_NEW_VALUE);
             }
-            addressBook.removePerson(target);
             Person updatedPerson = updateExistingPerson(target);
+            addressBook.removePerson(target);
+            addressBook.addPerson(updatedPerson);
             return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, target));
 
         } catch (IndexOutOfBoundsException ie) {
