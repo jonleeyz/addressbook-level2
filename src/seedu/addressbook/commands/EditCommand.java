@@ -42,6 +42,9 @@ public class EditCommand extends Command {
     public CommandResult execute() {
         try {
             final ReadOnlyPerson target = getTargetPerson();
+            if (isNewValueSameAsOld(target)) {
+                return new CommandResult(Messages.MESSAGE_INVALID_NEW_VALUE);
+            }
             addressBook.removePerson(target);
             return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, target));
 
