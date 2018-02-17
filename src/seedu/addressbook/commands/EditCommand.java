@@ -66,13 +66,13 @@ public class EditCommand extends Command {
     private boolean isNewValueSameAsOld(ReadOnlyPerson target) {
         switch (attribute) {
             case NAME:
-                return target.getName().equals(newValue);
+                return target.getName().toString().equals(newValue);
             case PHONE:
-                return target.getPhone().equals(newValue);
+                return target.getPhone().toString().equals(newValue);
             case EMAIL:
-                return target.getEmail().equals(newValue);
+                return target.getEmail().toString().equals(newValue);
             case ADDRESS:
-                return target.getAddress().equals(newValue);
+                return target.getAddress().toString().equals(newValue);
             default:
                 return true;
         }
