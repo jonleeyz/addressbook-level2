@@ -25,7 +25,7 @@ public class EditCommand extends Command {
             + "Parameters: INDEX ATTRIBUTE NEW_VALUE\n"
             + "Example: " + COMMAND_WORD + " 1 name Ryan";
 
-    public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edit successful:\n" +
+    private static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edit successful:\n"
             + "|| Original Person: %1$s\n"
             + "|| New Person: %2$s";
 
@@ -53,7 +53,6 @@ public class EditCommand extends Command {
             return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS,
                     target,
                     updatedPerson));
-
         } catch (IndexOutOfBoundsException ie) {
             return new CommandResult(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         } catch (PersonNotFoundException pnfe) {
