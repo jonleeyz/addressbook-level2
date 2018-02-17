@@ -191,9 +191,19 @@ public class Parser {
      * @return the prepared command
      */
     private Command prepareEdit(String args) {
+        final Matcher matcher = EDIT_PERSON_ARGS_FORMAT.matcher(args.trim());
+        // Validate arg string format
+        if (!matcher.matches()) {
+            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
+        }
         try {
-            final int targetIndex = parseArgsAsDisplayedIndex(args);
-            return new EditCommand(targetIndex);
+            String rawTargetIndex = matcher.group("targetIndex").trim();
+            final int targetIndex = parseArgsAsDisplayedIndex(rawTargetIndex);
+            return new EditCommand(
+                    targetIndex,
+                    matcher.group("attribute").trim(),
+                    matcher.group("newValue").trim()
+            );
         } catch (ParseException pe) {
             return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE));
         } catch (NumberFormatException nfe) {
