@@ -20,14 +20,14 @@ public class EditCommand extends Command {
     public static final String COMMAND_WORD = "edit";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Edits an attribute of a person identified by the index number\n"
+            + ": Edits an attribute of a person identified by the index number "
             + "used in the last find/list call.\n"
             + "Parameters: INDEX ATTRIBUTE NEW_VALUE\n"
             + "Example: " + COMMAND_WORD + " 1 name Ryan";
 
-    private static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edit successful:\n"
-            + "|| Original Person: %1$s\n"
-            + "|| New Person: %2$s";
+    private static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edit successful!\n"
+            + "Original Person: %1$s\n"
+            + "New Person: %2$s";
 
     private final Attribute attribute;
     private final String newValue;
