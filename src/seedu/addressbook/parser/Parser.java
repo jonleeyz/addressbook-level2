@@ -1,5 +1,6 @@
 package seedu.addressbook.parser;
 
+import static seedu.addressbook.common.Messages.MESSAGE_INVALID_ATTRIBUTE;
 import static seedu.addressbook.common.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.addressbook.common.Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX;
 
@@ -201,17 +202,18 @@ public class Parser {
             String rawAttribute = matcher.group("attribute").trim();
             final int targetIndex = parseArgsAsDisplayedIndex(rawTargetIndex);
             final Attribute attribute = Attribute.valueOf(rawAttribute.toUpperCase());
+            final String newValue = matcher.group("newValue").trim();
             return new EditCommand(
                     targetIndex,
                     attribute,
-                    matcher.group("newValue").trim()
+                    newValue
             );
         } catch (ParseException pe) {
             return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
         } catch (NumberFormatException nfe) {
             return new IncorrectCommand(MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         } catch (IllegalArgumentException iae) {
-            return new IncorrectCommand()
+            return new IncorrectCommand(MESSAGE_INVALID_ATTRIBUTE);
         }
     }
 
