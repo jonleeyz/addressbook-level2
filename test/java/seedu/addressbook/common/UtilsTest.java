@@ -36,6 +36,60 @@ public class UtilsTest {
         assertNotUnique(null, "a", "b", null);
     }
 
+    @Test
+    public void isAnyNull() throws Exception {
+        // empty list
+        assertNoneNull();
+
+        // only one object
+        assertAnyNull(null);
+        assertNoneNull(1);
+        assertNoneNull("");
+        assertNoneNull("abc");
+
+        // some nulls out of multiple objects
+        assertAnyNull(null, "abc", "abc");
+        assertAnyNull(null, "", "abc");
+        assertAnyNull(null, 1, "abc");
+        assertAnyNull(null, null, "abc");
+
+        // all nulls out of multiple objects
+        assertAnyNull(null, null);
+        assertAnyNull(null, null, null);
+        assertAnyNull(null, null, null, null, null, null, null, null, null, null);
+
+        // empty arrays
+        assertNoneNull(new String[5], new String[5]);
+        assertNoneNull(new String[5], new String[5], new String[5], new String[5]);
+
+        // non-empty arrays
+        String[] testArrayOne = {"abc", "", "hello"};
+        String[] testArrayTwo = {"bbc", "poll", "ravi"};
+        String[] testArrayThree = {"ty", "gg", "wp", null};
+        assertNoneNull(testArrayOne, testArrayTwo);
+        assertNoneNull(testArrayOne, testArrayTwo, testArrayThree);
+        assertAnyNull(testArrayOne, testArrayTwo, null);
+
+        // empty Collections
+        assertNoneNull(new ArrayList<>());
+        assertNoneNull(new LinkedList<>());
+        assertNoneNull(new ArrayList<>(), new LinkedList<>());
+        assertNoneNull(new HashMap<>());
+        ArrayList<String> testListOne = new ArrayList<>();
+        ArrayList<String> testListTwo = new ArrayList<>();
+
+        // non-empty Collections
+        testListOne.add("bbc");
+        testListOne.add("balaku");
+        testListOne.add("123");
+        testListTwo.add("4567");
+        testListTwo.add("ggwp");
+        testListTwo.add(null);
+        assertNoneNull(testListOne);
+        assertNoneNull(testListTwo);
+        assertNoneNull(testListOne, testListTwo);
+    }
+
     private void assertAnyNull(Object... objects) {
         assertTrue(Utils.isAnyNull(Arrays.asList(objects)));
     }
