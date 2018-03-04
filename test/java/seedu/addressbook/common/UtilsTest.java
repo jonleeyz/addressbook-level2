@@ -92,11 +92,11 @@ public class UtilsTest {
     }
 
     private void assertAnyNull(Object... objects) {
-        assertTrue(Utils.isAnyNull(Arrays.asList(objects)));
+        assertTrue(Utils.isAnyNull(objects));
     }
 
     private void assertNoneNull(Object... objects) {
-        assertFalse(Utils.isAnyNull(Arrays.asList(objects)));
+        assertFalse(Utils.isAnyNull(objects));
     }
 
     private void assertAreUnique(Object... objects) {
